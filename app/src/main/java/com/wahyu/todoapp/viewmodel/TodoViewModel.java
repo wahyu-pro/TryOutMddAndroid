@@ -23,7 +23,7 @@ public class TodoViewModel extends ViewModel {
 
     MutableLiveData<List<DataItem>> listTodos = new MutableLiveData<>();
 
-    public LiveData<List<DataItem>> getListTodos() {
+    public MutableLiveData<List<DataItem>> getListTodos() {
         return listTodos;
     }
 

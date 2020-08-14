@@ -88,20 +88,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDelete(DataItem todos) {
                 viewModel.deleteTodos(todos);
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
 
             @Override
             public void onUpdateStatus(DataItem todos, Boolean status) {
                 viewModel.updateStatus(todos, status);
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
 
-        binding.addBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AddActivity.class));
-            }
-        });
+        binding.addBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, AddActivity.class)));
     }
 
     private void getAllTodos() {
