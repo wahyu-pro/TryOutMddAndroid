@@ -25,13 +25,10 @@ public class AddActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add);
         todos = new DataItem();
         viewModel = new ViewModelProvider(AddActivity.this, new ViewModelProvider.NewInstanceFactory()).get(TodoViewModel.class);
-        binding.btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                todos.setTask(binding.etEdit.getText().toString());
-                viewModel.addData(todos);
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            }
+        binding.btnAdd.setOnClickListener(v -> {
+            todos.setTask(binding.etEdit.getText().toString());
+            viewModel.addData(todos);
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
         });
     }
 }
