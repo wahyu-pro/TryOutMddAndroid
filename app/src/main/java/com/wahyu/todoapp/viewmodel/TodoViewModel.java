@@ -96,7 +96,6 @@ public class TodoViewModel extends ViewModel {
         ApiClient.client(TodoService.class, BASE_URL).updateStatus(todos.getId(), todos).enqueue(new Callback<Response>() {
             @Override
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
-
             }
 
             @Override

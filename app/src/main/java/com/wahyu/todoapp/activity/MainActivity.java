@@ -88,15 +88,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDelete(DataItem todos) {
                 viewModel.deleteTodos(todos);
-                finish();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                // reload data
+                reloadData();
             }
 
             @Override
             public void onUpdateStatus(DataItem todos, Boolean status) {
                 viewModel.updateStatus(todos, status);
-                finish();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                // reload data
+                reloadData();
             }
         });
 
@@ -112,5 +114,12 @@ public class MainActivity extends AppCompatActivity {
                 binding.setIsLoading(false);
             }
         });
+    }
+
+    public void reloadData(){
+        finish();
+        overridePendingTransition( 0, 0);
+        startActivity(getIntent());
+        overridePendingTransition( 0, 0);
     }
 }
